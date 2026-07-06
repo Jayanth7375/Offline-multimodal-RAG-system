@@ -1,0 +1,110 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Core Colors */
+  --bg-dark: #070707;
+  --bg-card: #111111;
+  --accent: #d4af37; /* Aetheria Gold */
+  --accent-glow: rgba(212, 175, 55, 0.15);
+  --accent-text: #e8d5c4;
+  
+  /* UI Surfaces */
+  --glass: rgba(255, 255, 255, 0.03);
+  --glass-border: rgba(255, 255, 255, 0.08);
+  --glass-hover: rgba(255, 255, 255, 0.06);
+  
+  /* Typography */
+  --text-primary: #f5f5f5;
+  --text-secondary: #a0a09a;
+  --text-muted: #666662;
+  
+  /* Transitions */
+  --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: var(--bg-dark);
+  color: var(--text-primary);
+  font-family: 'Inter', -apple-system, sans-serif;
+  overflow: hidden;
+  height: 100vh;
+  -webkit-font-smoothing: antialiased;
+  letter-spacing: -0.015em;
+  line-height: 1.6;
+}
+
+h1, h2, h3, h4, .premium-font, .sidebar-title {
+  font-family: 'Inter', sans-serif;
+  letter-spacing: -0.035em; /* Tight tracking from reference image */
+  font-weight: 600;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 4px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--glass-border);
+  border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--accent);
+}
+
+/* Glassmorphism Classes */
+.glass {
+  background: var(--glass);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--glass-border);
+}
+
+/* Gold Line Utility */
+.gold-line {
+  height: 1px;
+  width: 100%;
+  background: linear-gradient(to right, transparent, var(--accent) 50%, transparent);
+  opacity: 0.3;
+  box-shadow: 0 0 10px var(--accent-glow);
+}
+
+.gold-line-vertical {
+  width: 1px;
+  height: 100%;
+  background: linear-gradient(to bottom, transparent, var(--accent) 50%, transparent);
+  opacity: 0.3;
+}
+
+input, textarea, button {
+  font-family: inherit;
+  outline: none;
+}
+
+button {
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+a {
+  color: var(--accent);
+  text-decoration: none;
+  transition: var(--transition);
+}
+
+a:hover {
+  opacity: 0.8;
+  text-shadow: 0 0 10px var(--accent-glow);
+}
